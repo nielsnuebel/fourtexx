@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="component" version="3.8" method="upgrade">
+    <name>COM_FOURTEXX</name>
+    <creationDate>Mai 2020</creationDate>
+    <author>Kicktemp GmbH</author>
+    <authorEmail>hello@kicktemp.com</authorEmail>
+    <authorUrl>https://kicktemp.com</authorUrl>
+    <copyright>Copyright © 2020 Kicktemp GmbH. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>[VERSION]</version>
+    <description>COM_FOURTEXX_XML_DESCRIPTION</description>
+
+    <media destination="com_fourtexx" folder="media">
+        <folder>js</folder>
+    </media>
+
+    <!-- Runs on install -->
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install/mysql/mysql.sql</file>
+        </sql>
+    </install>
+
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall/mysql/mysql.sql</file>
+        </sql>
+    </uninstall>
+
+    <!-- Front-end files -->
+    <files folder="site">
+        <filename>fourtexx.php</filename>
+        <filename>controller.php</filename>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+        <folder>language</folder>
+        <folder>layouts</folder>
+        <folder>models</folder>
+        <folder>views</folder>
+    </files>
+
+    <!-- Back-end files -->
+    <administration>
+        <!-- Menu entries -->
+        <menu view="dashboard">COM_FOURTEXX</menu>
+        <submenu>
+            <!--
+                Note that all & must be escaped to &amp; for the file to be valid
+                XML and be parsed by the installer
+            -->
+            <menu
+                    link="option=com_fourtexx&amp;view=dashboard"
+                    view="dashboard"
+                    img="class:fourtexx-dashboard"
+                    alt="Fourtexx/Dashboard"
+            >
+                com_fourtexx_dashboard
+            </menu>
+            <menu
+                    link="option=com_fourtexx&amp;view=seminars"
+                    view="seminars"
+                    img="class:fourtexx-seminars"
+                    alt="Fourtexx/Seminars"
+            >
+                com_fourtexx_seminars
+            </menu>
+            <menu
+                    link="option=com_fourtexx&amp;view=dates"
+                    view="dates"
+                    img="class:fourtexx-dates"
+                    alt="Fourtexx/Dates"
+            >
+                com_fourtexx_dates
+            </menu>
+            <menu
+                    link="option=com_fourtexx&amp;view=companies"
+                    view="companies"
+                    img="class:fourtexx-companies"
+                    alt="Fourtexx/Companies"
+            >
+                com_fourtexx_companies
+            </menu>
+            <menu
+                    link="option=com_fourtexx&amp;view=registrations"
+                    view="registrations"
+                    img="class:fourtexx-registrations"
+                    alt="Fourtexx/Registrations"
+            >
+                com_fourtexx_registrations
+            </menu>
+        </submenu>
+
+        <!-- Core files -->
+        <files folder="admin">
+            <filename>fourtexx.php</filename>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>LICENSE.txt</filename>
+            <folder>controllers</folder>
+            <folder>helpers</folder>
+            <folder>language</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+    </administration>
+
+    <!-- Update servers -->
+    <updateservers>
+        <server type="extension" priority="1" name="Kick Consent Manager">https://www.example.com/fourtexx.xml</server>
+    </updateservers>
+</extension>
